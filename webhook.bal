@@ -18,7 +18,8 @@ scim:ConnectorConfig scimConfig = {
 service asgardeo:RegistrationService on webhookListener {
   
     remote function onAddUser(asgardeo:AddUserEvent event ) returns error? {
-      //Not Implemented
+      io:println("User Registered");
+      check getUserDetails();
     }
     remote function onConfirmSelfSignup(asgardeo:GenericEvent event ) returns error? {
       //Not Implemented
