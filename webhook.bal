@@ -19,6 +19,7 @@ service asgardeo:RegistrationService on webhookListener {
   
     remote function onAddUser(asgardeo:AddUserEvent event ) returns error? {
       io:println("User Registered");
+      check getUserDetails();
     }
     remote function onConfirmSelfSignup(asgardeo:GenericEvent event ) returns error? {
       //Not Implemented
