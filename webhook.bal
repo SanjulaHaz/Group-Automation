@@ -27,4 +27,9 @@ service asgardeo:RegistrationService on webhookListener {
     }
 }
 
+public function getUserDetails() returns error?{
+  scim:Client client1 = check new(scimConfig);
+  scim:UserResource response= check client1->getUser("0ffc0ff3-6f56-46fe-8419-c36dd27e1936");
+}
+
 service /ignore on httpListener {}
