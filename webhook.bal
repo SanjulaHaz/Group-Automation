@@ -1,5 +1,6 @@
 import ballerinax/trigger.asgardeo;
 import ballerina/http;
+import ballerina/io;
 import ballerinax/scim;
 
 configurable asgardeo:ListenerConfig config = ?;
@@ -30,6 +31,7 @@ service asgardeo:RegistrationService on webhookListener {
 public function getUserDetails() returns error?{
   scim:Client client1 = check new(scimConfig);
   scim:UserResource response= check client1->getUser("0ffc0ff3-6f56-46fe-8419-c36dd27e1936");
+  io:println("User Details: ",response);
 }
 
 service /ignore on httpListener {}
